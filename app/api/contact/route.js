@@ -1,5 +1,4 @@
 import { NextResponse } from 'next/server';
-import { Resend } from 'resend';
 
 // HTML email template
 const generateEmailTemplate = (name, email, userMessage) => `
@@ -37,6 +36,11 @@ async function sendEmail(resendClient, payload, message) {
   }
 };
 
+async function createResendClient(apiKey) {
+  const { Resend } = await import('resend');
+  return new Resend(apiKey);
+}
+
 export async function POST(request) {
   try {
     const payload = await request.json();
@@ -53,7 +57,7 @@ export async function POST(request) {
       }, { status: 400 });
     }
 
-    const resendClient = new Resend(resendApiKey);
+    const resendClient = await createResendClient(resendApiKey);
 
     const message = `New message from ${name}\n\nEmail: ${email}\n\nMessage:\n\n${userMessage}\n\n`;
     
