@@ -1,8 +1,6 @@
 import { NextResponse } from 'next/server';
 import { Resend } from 'resend';
 
-const resend = new Resend(process.env.RESEND_API_KEY);
-
 // HTML email template
 const generateEmailTemplate = (name, email, userMessage) => `
   <div style="font-family: Arial, sans-serif; color: #333; padding: 20px; background-color: #f4f4f4;">
@@ -20,11 +18,11 @@ const generateEmailTemplate = (name, email, userMessage) => `
 `;
 
 // Helper function to send an email via Resend
-async function sendEmail(payload, message) {
+async function sendEmail(resendClient, payload, message) {
   const { name, email, message: userMessage } = payload;
   
   try {
-    await resend.emails.send({
+    await resendClient.emails.send({
       from: process.env.RESEND_FROM_EMAIL,
       to: process.env.EMAIL_ADDRESS,
       subject: `New Message From ${name}`,
@@ -55,10 +53,12 @@ export async function POST(request) {
       }, { status: 400 });
     }
 
+    const resendClient = new Resend(resendApiKey);
+
     const message = `New message from ${name}\n\nEmail: ${email}\n\nMessage:\n\n${userMessage}\n\n`;
     
     // Send email only
-    const emailSuccess = await sendEmail(payload, message);
+    const emailSuccess = await sendEmail(resendClient, payload, message);
 
     if (emailSuccess) {
       return NextResponse.json({
