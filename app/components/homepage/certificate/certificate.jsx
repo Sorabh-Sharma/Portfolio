@@ -14,44 +14,45 @@ const projects = [
   {
     id: 1,
     title: "Oracle",
+    infoLine: "Industry-level Oracle Cloud Infrastructure 2025 Certified AI Foundations Associate",
     description: "Full-stack project management app with real-time collaboration.",
     color: "#264653",
     
     image: oracleCert,
     github: "https://catalog-education.oracle.com/ords/certview/sharebadge?id=7415D936A487F80DBAECF9F5FB353237BDC403AB6894AFD050E36CFC47FFCF83",
-    tags: ["React", "Node.js", "MongoDB"],
   },
   {
     id: 2,
     title: "Infosys ",
+    infoLine: "Build Generative Al Apps and Solutions with No-Code Tools",
     description: "ML-powered image classifier with 97% accuracy on custom datasets.",
     color: "#2A9D8F",
   
     image: infosysCert,
     github: "https://verify.onwingspan.com/",
-    tags: ["Python", "TensorFlow", "Flask"],
   },
   {
     id: 3,
     title: "Cipher Schools",
+    infoLine: "Game Development with Unity and C#",
     description: "Open-source design system with 60+ accessible components.",
     color: "#E9C46A",
     image: cipherCert,
     github: "https://www.cipherschools.com/certificate/preview?id=687e23ba7efd6d5090703cad",
-    tags: ["Figma", "React", "Storybook"],
   },
   {
     id: 4,
     title: "NPTEL",
+    infoLine: "Privacy and Security in Online Social Media",
     description: "AWS infrastructure manager with one-click deployment pipelines.",
     color: "#F4A261",
     image: nptelCert,
     github: "https://archive.nptel.ac.in/noc/Ecertificate/?q=NPTEL25CS117S145870222710886458",
-    tags: ["AWS", "Terraform", "Docker"],
   },
   {
     id: 5,
     title: "Udemy",
+    infoLine: "Udemy's front end web development course",
     description: "Network intrusion detection system using anomaly-based analysis.",
     color: "#E76F51",
     image: udemyCert,
@@ -221,34 +222,12 @@ export default function ProjectsSection() {
           text-overflow: ellipsis;
         }
 
-        .ps-desc {
+        .ps-basic-line {
           font-family: 'DM Mono', monospace;
-          font-size: 0.58rem;
-          color: rgba(255,255,255,0.6);
-          margin: 0;
-          line-height: 1.4;
-          display: -webkit-box;
-          -webkit-line-clamp: 2;
-          -webkit-box-orient: vertical;
-          overflow: hidden;
-        }
-
-        .ps-tags {
-          display: flex;
-          gap: 4px;
-          flex-wrap: wrap;
-        }
-
-        .ps-tag {
-          font-family: 'DM Mono', monospace;
-          font-size: 0.5rem;
-          letter-spacing: 0.06em;
-          text-transform: uppercase;
-          background: rgba(255,255,255,0.12);
+          font-size: 0.62rem;
           color: rgba(255,255,255,0.75);
-          padding: 2px 6px;
-          border-radius: 3px;
-          white-space: nowrap;
+          margin: 2px 0 0;
+          line-height: 1.4;
         }
 
         /* GitHub button */
@@ -342,6 +321,7 @@ export default function ProjectsSection() {
                   <div className="ps-info-top">
                     <p className="ps-title">{project.title}</p>
                   </div>
+                  <p className="ps-basic-line">{project.infoLine}</p>
                   <div className="flex justify-end mt-2">
                     <a
                       className="ps-github bg-green-600 hover:bg-green-700 text-white"
@@ -357,13 +337,6 @@ export default function ProjectsSection() {
                     </a>
                   </div>
 
-                  <p className="ps-desc">{project.description}</p>
-
-                  <div className="ps-tags">
-                    {project.tags.map((tag) => (
-                      <span key={tag} className="ps-tag">{tag}</span>
-                    ))}
-                  </div>
                 </div>
               </div>
             </div>
