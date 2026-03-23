@@ -1,4 +1,4 @@
-<p align="center" width="100%">
+<!-- <p align="center" width="100%">
   <img height="100" src="./public/image/screen.png">
 </p>
 
@@ -590,4 +590,4 @@ This project is licensed under the **MIT License** - see the [LICENSE](LICENSE) 
 ![GitHub stars](https://img.shields.io/github/stars/<YOUR_GITHUB_USERNAME>/developer-portfolio?style=social)
 ![GitHub forks](https://img.shields.io/github/forks/<YOUR_GITHUB_USERNAME>/developer-portfolio?style=social)
 ![GitHub issues](https://img.shields.io/github/issues/<YOUR_GITHUB_USERNAME>/developer-portfolio)
-![GitHub license](https://img.shields.io/github/license/<YOUR_GITHUB_USERNAME>/developer-portfolio)
+![GitHub license](https://img.shields.io/github/license/<YOUR_GITHUB_USERNAME>/developer-portfolio) -->
